@@ -8,14 +8,16 @@
 //     console.log(evalit(evalStr));
 //   });
 // }
-
 module.exports = parse;
 
-function parse(str) {
-  var funcLines = ['(function(){ var _outStr = "";'];
+function parse(str, context) {
+  var funcLines = [
+    'var c = ' + JSON.stringify(context) + ';',
+    '(function(){ var _outStr = "";',
+  ];
 
   while (str.length > 0) {
-    var chunks = str.match(/^(.*?)<%(.*?)%>/);
+    var chunks = str.match(/([.\s\S]*?)<%([.\s\S]*?)%>/);
     if (chunks) {
       var text = chunks[1];
       var code = chunks[2];
@@ -28,9 +30,15 @@ function parse(str) {
     }
   }
 
-  funcLines.push('return _outStr; })()');
+  funcLines.push('return {result: _outStr, context: c}; })()');
 
-  return eval(funcLines.join('\n'));
+  var output = eval(funcLines.join('\n'));
+
+  for (var prop in output.context) {
+    context[prop] = output.context[prop];
+  }
+
+  return output.result;
 }
 
 function prepareText(text) {
