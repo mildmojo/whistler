@@ -1,4 +1,10 @@
-module.exports  = [
-  'clear\nMoonlit\nA mildmojo game.\n\nIt was a [brightly moonlit](storm) night.\n\nPassage visit counter: <% c.a = c.a || 0; %> <%= c.a++ %>',
-  'storm\nStormy\nA mildmojo game.\n\nIt was a [dark and stormy](clear) night.',
-];
+module.exports = [
+  {
+    "name": "TITLE OF PASSAGE UNO",
+    "body": "PASSAGE NUMERO UNO\n\n[[second story|TITLE OF PASSAGE DOS]] "
+  },
+  {
+    "name": "TITLE OF PASSAGE DOS",
+    "body": "PASSAGE NUMERO DOS\n\n[[first story|TITLE OF PASSAGE UNO]] "
+  }
+]

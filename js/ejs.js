@@ -12,7 +12,7 @@ module.exports = parse;
 
 function parse(str, context) {
   var funcLines = [
-    'var c = ' + JSON.stringify(context) + ';',
+    'var s = ' + JSON.stringify(context) + ';',
     '(function(){ var _outStr = "";',
   ];
 
@@ -30,7 +30,7 @@ function parse(str, context) {
     }
   }
 
-  funcLines.push('return {result: _outStr, context: c}; })()');
+  funcLines.push('return {result: _outStr, context: s}; })()');
 
   var output = eval(funcLines.join('\n'));
 
