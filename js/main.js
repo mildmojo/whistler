@@ -1,9 +1,19 @@
-var storyData = require('./story.js');
+/*
+
+TODO:
+- write webpack loader for Twine 2 story files
+
+
+
+
+
+*/
+var storyData = require('../tools/twine2-loader!./story.html');
 var ejsParse = require('./ejs.js');
-var preprocessors = require('./storyPreprocessors.js');
+// var preprocessors = require('./storyPreprocessors.js');
 var gameState = {};
 
-storyData = preprocessor(storyData);
+// storyData = preprocessor(storyData);
 ready(visitPassage.bind(null, storyData));
 
 function ready(fn) {
@@ -37,11 +47,11 @@ function visitPassage(storyData, passageName) {
   });
 }
 
-function preprocessor(storyData) {
-  preprocessors.forEach(function(proc) {
-    storyData = proc.call(null, storyData);
-  });
+// function preprocessor(storyData) {
+//   preprocessors.forEach(function(proc) {
+//     storyData = proc.call(null, storyData);
+//   });
 
-  return storyData;
-}
+//   return storyData;
+// }
 
