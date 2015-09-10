@@ -6,7 +6,6 @@ TODO:
 
 
 
-
 */
 var storyData = require('../tools/twine2-loader!./story.html');
 var ejsParse = require('./ejs.js');
@@ -25,7 +24,7 @@ function ready(fn) {
 }
 
 function visitPassage(storyData, passageName) {
-  var container = document.querySelector('div.container');
+  var container = document.querySelector('div.content');
   var passage = null;
   storyData.forEach(function(onePassage) {
     if (onePassage.name === passageName) {
