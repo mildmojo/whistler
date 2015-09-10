@@ -17,13 +17,14 @@ function parse(str, context) {
   ];
 
   while (str.length > 0) {
-    var chunks = str.match(/([.\s\S]*?)<%([.\s\S]*?)%>/);
+    var chunks = str.match(/([.\s\S]*?)<%([.\s\S]*?)%>\n*/);
     if (chunks) {
+      var match = chunks[0];
       var text = chunks[1];
       var code = chunks[2];
       funcLines.push(prepareText(text));
       funcLines.push(prepareCode(code));
-      str = str.substr(text.length + code.length + 4);
+      str = str.substr(match.length);
     } else {
       funcLines.push(prepareText(str));
       str = '';

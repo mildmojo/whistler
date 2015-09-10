@@ -34,7 +34,7 @@ function visitPassage(storyData, passageName) {
   });
   passage = passage || storyData[0];
 
-  container.innerHTML = ejsParse(passage.body, gameState);
+  container.innerHTML = ejsParse(passage.body, gameState).replace(/\n/g, '<br>');
   var links = document.querySelectorAll('a.passage');
   links = Array.prototype.slice.call(links);
   links.forEach(function(node) {
