@@ -12,8 +12,9 @@ module.exports = parse;
 
 function parse(str, context) {
   var funcLines = [
-    'var s = ' + JSON.stringify(context) + ';',
-    '(function(){ var _outStr = "";',
+    '(function(context){',
+    'var s = context;',
+    'var _outStr = "";',
   ];
 
   while (str.length > 0) {
@@ -31,15 +32,16 @@ function parse(str, context) {
     }
   }
 
-  funcLines.push('return {result: _outStr, context: s}; })()');
+  funcLines.push('return _outStr; })');
 
-  var output = eval(funcLines.join('\n'));
+  var ejsFunc = eval(funcLines.join('\n'));
+  var output = ejsFunc(context);
 
-  for (var prop in output.context) {
-    context[prop] = output.context[prop];
-  }
+  // for (var prop in output.context) {
+  //   context[prop] = output.context[prop];
+  // }
 
-  return output.result;
+  return output;
 }
 
 function prepareText(text) {
@@ -53,4 +55,36 @@ function prepareCode(code) {
     cleanCode = '_outStr += ' + cleanCode.substr(1) + ';';
   }
   return cleanCode;
+}
+
+function delay(id, delayMS) {
+  setTimeout(function() {
+    unhide(id);
+  }, delayMS);
+}
+
+function emitHideStart(id) {
+  return '<span id="' + id + '" class="hidden">';
+}
+
+function emitHideEnd(id) {
+  return '</span>';
+}
+
+function hide(id) {
+  setTimeout(function() {
+    var el = document.querySelector('#' + id);
+    el.classList.add('hidden');
+  }, 0);
+}
+
+function unhide(id) {
+  setTimeout(function() {
+    var el = document.querySelector('#' + id);
+    el.classList.remove('hidden');
+  }, 0);
+}
+
+function linkDo(text, func) {
+  // How to make a link that does action on a page?
 }
