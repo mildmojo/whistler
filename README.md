@@ -32,6 +32,19 @@ implemented to make some things easier, and I support running code as the target
 of a link with `[[Description of link|js:call_some_code()]]` syntax. That part
 plays hell with Twine's UI.
 
+## Engine Usage
+
+Prerequisites: npm, webpack.
+
+1. Run `npm install`.
+2. If necessary, install webpack with `npm install -g webpack`.
+3. Replace `Whistler.html` with a Twine 2 export or change the `require` at the
+top of `main.js` to point to your own Twine 2 export.
+4. Change the header in `index.html`.
+5. Run `build.sh` or run the individual commands (or platform equivalents) inside.
+
+You'll probably want to edit `css/main.css` to suit your story, too.
+
 ## Notes
 
 This is less than what I wanted to produce. I got a late start on the
@@ -46,3 +59,9 @@ because I didn't have the required screenshots ready and the site kept telling
 me my basic arithmetic was wrong.
 
 Ping me on Twitter if you give it a try and you've got something to say.
+
+## Future
+
+I'd like to see if it's possible to make this into an actual Twine export format.
+I know nothing about Twine formats; it may not even be possible to get a small
+package from Twine without modifying its core.
