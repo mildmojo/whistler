@@ -96,5 +96,5 @@ function once(gameState, id) {
 function countdown(gameState, passageName, numTurns) {
   if (numTurns === 0) return delete gameState.countdowns[passageName];
   if (gameState.countdowns[passageName] > 0) return;
-  gameState.countdowns[passageName] = numTurns;
+  gameState.countdowns[passageName] = numTurns + 1;
 }

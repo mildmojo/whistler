@@ -28,7 +28,7 @@ function visit(passageName) {
   // Get passage name, automatically switch to passage when countown runs out.
   passageName = passageName || window.location.search.substr(1).replace(/%20/g, ' ') || 'Start';
   Object.keys(gameState.countdowns).forEach(function(key) {
-    if (gameState.countdowns[key]-- <= 0) {
+    if (--gameState.countdowns[key] === 0) {
       passageName = key;
       delete gameState.countdowns[key];
     }
