@@ -85,6 +85,16 @@ function unhide(id) {
   }, 0);
 }
 
-function linkDo(text, func) {
-  // How to make a link that does action on a page?
+function once(gameState, id) {
+  if (gameState.once[id]) {
+    hide(id);
+  } else {
+    gameState.once[id] = true;
+  }
+}
+
+function countdown(gameState, passageName, numTurns) {
+  if (numTurns === 0) return delete gameState.countdowns[passageName];
+  if (gameState.countdowns[passageName] > 0) return;
+  gameState.countdowns[passageName] = numTurns;
 }

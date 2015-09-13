@@ -11,6 +11,12 @@ body {
   color: #555;
 }
 
+h4 {
+  text-align: center;
+  font-variant: small-caps;
+  margin-bottom: 1em;
+}
+
 a {
   color: #555;
 }
@@ -22,7 +28,6 @@ pre {
 .hidden {
   display: none;
 }
-
 
 .passage-body, .passage-body * {
   animation: fadein 1s;
@@ -47,6 +52,10 @@ pre {
   font-variant: small-caps;
   background: #333;
   padding: 5px 20px 5px 20px;
+}
+
+.whistle {
+  font-variant: small-caps;
 }
 
 @media (max-width: 870px) {
