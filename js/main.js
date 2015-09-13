@@ -51,16 +51,21 @@ function visit(passageName) {
     passageHTML = '<h4>' + gameState.location + '</h4>' + passageHTML;
   }
 
+  // Replace the passage and reset the view to the top.
   container.innerHTML = passageHTML;
+  window.scrollTo(0,0);
 
+  // For all passage links, add click handlers that call this function instead.
   var links = document.querySelectorAll('a.passage');
   links = Array.prototype.slice.call(links);
   links.forEach(function(node) {
     node.addEventListener('click', function(e) {
       var passageName = this.getAttribute('passage');
       if (passageName.substr(0, 3) === 'js:') {
+        // If the target is 'js:*', eval it.
         eval(passageName.substr(3));
       } else {
+        // Otherwise, just visit the passage.
         visit(this.getAttribute('passage'));
       }
       e.stopPropagation();
