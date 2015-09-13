@@ -37,8 +37,10 @@ function visit(passageName) {
   gameState.lastPassage = gameState.currentPassage;
   gameState.currentPassage = passageName;
 
-  var passage = storyData.find(function(onePassage) {
-    return onePassage.name === passageName;
+  storyData.forEach(function(onePassage) {
+    if (onePassage.name === passageName) {
+      passage = onePassage;
+    }
   });
   if (!passage) return console.warn('Passage "' + passageName + '" not found!');
 

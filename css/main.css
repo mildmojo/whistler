@@ -6,9 +6,10 @@
 
 body {
   font-size: 16pt;
-  font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+  font-family: Palatino Linotype, Book Antiqua, Palatino, Georgia, serif;
   background: #EEE;
   color: #555;
+  line-height: 1.5em;
 }
 
 h4 {
