@@ -322,7 +322,7 @@ There&#x27;s a sea of blinking lights and display screens in front of you. This 
 The walkway here is wider than the munitions car, but only just.
 
 &lt;% if (s.entryAlarm) { %&gt;
-&lt;% countdown(s, &#x27;Station Comm Alarm&#x27;, 10) %&gt;
+&lt;% countdown(s, &#x27;Station Comm Alarm&#x27;, 20) %&gt;
 A red beacon above your head washes over your surroundings. The alarm is still active, and you&#x27;re coming up on a station in a few minutes. Shutting it off is imperative.
 
 You spot a small screen at waist height that&#x27;s flashing a crude, blocky pixel diagram of the train. The munitions car is flashing the word &quot;BREACH&quot;. There&#x27;s a [[data port|Comm Alarm Port]] a few inches away on the same panel.
@@ -353,12 +353,14 @@ The alarm flasher at the rear of the car sprays the walls in red like a bloody l
 
 The bright lights of the station push through small apertures in the car&#x27;s walls. 
 
-&lt;span id=&quot;line1&quot; class=&quot;hidden&quot;&gt;The car doors make a &lt;i&gt;whirrr-click&lt;i&gt; sound as they lock you inside.&lt;/span&gt;
+&lt;span id=&quot;line1&quot; class=&quot;hidden&quot;&gt;The car doors make a &lt;i&gt;whirrr-click&lt;/i&gt; sound as they lock you inside.&lt;/span&gt;
 
 &lt;span id=&quot;line2&quot; class=&quot;hidden&quot;&gt;Everything goes dark. The computer was able to notify command that you compromised the train, and received orders to lock itself down against physical tampering.&lt;/span&gt;
 
 &lt;span id=&quot;line3&quot; class=&quot;hidden&quot;&gt;You try connecting your handset to a data port only to receive a shower of sparks. The handset is smoking now. Burnt crisp.&lt;/span&gt;
+
 &lt;span id=&quot;line4&quot; class=&quot;hidden&quot;&gt;The train will complete its mission.&lt;/span&gt;
+
 &lt;span id=&quot;line5&quot; class=&quot;hidden&quot;&gt;The Portsmouth infolib cell is as good as dead. Your future isn&#x27;t much brighter.&lt;/span&gt;
 
 &lt;span id=&quot;line6&quot; class=&quot;hidden&quot;&gt;You get to sit here in the dark, knowing exactly what&#x27;s about to happen, powerless to stop it. When the strike is over, you&#x27;ll be delivered back to Brunswick Naval Air Station. They&#x27;ll have a welcoming party ready for you, with bright lights, barking dogs, and men with guns.&lt;/span&gt;
@@ -402,6 +404,7 @@ You try another command.
 }%&gt;
 &lt;% s.exitAllowed = true %&gt;
 &lt;% s.entryAlarm = false %&gt;
+&lt;% countdown(s, &#x27;Station Comm Alarm&#x27;, 0) %&gt;
 
 The printer spits out a new line: &quot;LOOP ACCEPTED, EXECUTING...&quot;
 
